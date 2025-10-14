@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lộ Vòng Cung — Dấu ấn giữa thiên nhiên & lịch sử</title>
+    <meta
+      name="description"
+      content="Khám phá 9 điểm di tích lịch sử nổi bật trên Lộ Vòng Cung, Cần Thơ. Thông tin du lịch, lịch sử và hướng dẫn tham quan đầy đủ."
+    />
+
+    <!-- Fonts & AOS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      :root {
+        --blue-deep: #1e40af;
+        --green-fresh: #16a34a;
+        --ivory: #f9fafb;
+        --muted: #6b7280;
+        --card-radius: 14px;
+        --container: 1200px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        color: var(--blue-deep);
+        background: var(--ivory);
+        margin: 0;
+      }
+
+      /* NAV */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(6px);
+        transition: box-shadow 0.25s ease;
+      }
+      .navbar.scrolled {
+        box-shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+      }
+      .nav-inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(
+          135deg,
+          var(--blue-deep),
+          var(--green-fresh)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: Playfair Display;
+        font-weight: 700;
+      }
+      .site-name {
+        font-family: Playfair Display;
+        font-size: 16px;
+        color: var(--blue-deep);
+      }
+      .menu {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .menu a {
+        padding: 8px 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--blue-deep);
+        font-weight: 600;
+        transition: all 0.22s ease;
+      }
+      .menu a:hover {
+        background: var(--green-fresh);
+        color: white;
+        transform: translateY(-2px);
+      }
+      .cta-primary {
+        background: linear-gradient(90deg, var(--green-fresh), #10b981);
+        color: white;
+        padding: 9px 14px;
+        border-radius: 12px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.18s ease;
+      }
+      .cta-primary:hover {
+        transform: translateY(-3px);
+        filter: brightness(1.02);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+      }
+      .hero .media {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .hero video,
+      .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(6, 23, 60, 0.28),
+          rgba(6, 23, 60, 0.48)
+        );
+      }
+      .hero .container {
+        position: relative;
+        z-index: 10;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 48px;
+      }
+
+      .hero h1 {
+        font-family: Playfair Display;
+        color: var(--ivory);
+        font-size: 38px;
+        line-height: 1.02;
+        margin: 0;
+      }
+      .hero p {
+        color: rgba(249, 250, 251, 0.95);
+        margin-top: 12px;
+        max-width: 740px;
+      }
+      .hero .actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+      }
+
+      /* Main */
+      main {
+        max-width: var(--container);
+        margin: 28px auto;
+        padding: 0 20px;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: start;
+      }
+      .intro .text h2 {
+        font-family: Playfair Display;
+        color: var(--blue-deep);
+        margin: 0 0 12px;
+        font-size: 26px;
+      }
+      .intro .text p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .intro .visual {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 6px 26px rgba(16, 24, 40, 0.06);
+      }
+      .intro .visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Cards */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 28px;
+      }
+      .card {
+        background: white;
+        border-radius: var(--card-radius);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+        transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1),
+          box-shadow 0.28s ease, filter 0.28s ease;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+        filter: brightness(0.92);
+      }
+      .card .thumb {
+        height: 170px;
+        overflow: hidden;
+      }
+      .card .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .card .body {
+        padding: 14px;
+      }
+      .card h3 {
+        margin: 0;
+        font-family: Playfair Display;
+        color: var(--blue-deep);
+        font-size: 18px;
+      }
+      .card p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .card .more {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: linear-gradient(
+          90deg,
+          rgba(16, 185, 129, 0.08),
+          rgba(30, 64, 175, 0.04)
+        );
+        border: 1px solid rgba(16, 185, 129, 0.08);
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .card .more:hover {
+        background: linear-gradient(
+          90deg,
+          var(--green-fresh),
+          var(--blue-deep)
+        );
+        color: white;
+      }
+
+      /* Map area (placeholder for QGIS embed) */
+      #map-area {
+        margin-top: 26px;
+        border-radius: 12px;
+        overflow: hidden;
+        min-height: 380px;
+        background: linear-gradient(
+          180deg,
+          rgba(30, 64, 175, 0.04),
+          rgba(16, 185, 129, 0.02)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--blue-deep);
+      }
+      #map-area .hint {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      /* Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        z-index: 80;
+      }
+      .modal {
+        background: white;
+        border-radius: 12px;
+        max-width: 980px;
+        width: 100%;
+        max-height: 92vh;
+        overflow: auto;
+        padding: 18px;
+      }
+      .modal .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .modal .gallery {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .modal .gallery img {
+        width: 160px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .modal .meta {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 8px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1000px) {
+        .intro {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .menu {
+          display: none;
+        }
+        .nav-inner {
+          padding: 10px;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
+        .hero p {
+          font-size: 14px;
+        }
+      }
+
+      /* small interaction for keyboard focus */
+      .card:focus {
+        outline: 3px solid rgba(30, 64, 175, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo">LVC</div>
+          <div>
+            <div class="site-name">Lộ Vòng Cung</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Dấu ấn giữa thiên nhiên & lịch sử
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Main navigation">
+          <a href="#home">Trang chủ</a>
+          <a href="#gioithieu">Giới thiệu</a>
+          <a href="#diemdi">Di sản</a>
+          <a href="#ban-do">Bản đồ</a>
+          <button
+            class="cta-primary"
+            onclick="document.getElementById('diemdi').scrollIntoView({behavior:'smooth'})"
+          >
+            Khám phá
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="media" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="./image/lvc-1.jpg">
+          <source
+            src="https://cdn.pixabay.com/vimeo/473597331/river-12034.mp4?width=1280&hash=6a5e2ee5bcf1f4f2f2b575e6b1a2c3d4"
+            type="video/mp4"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&s=placeholder"
+            alt="Lộ Vòng Cung - Cần Thơ"
+          />
+        </video>
+        <div class="overlay"></div>
+      </div>
+
+      <div class="container">
+        <h1 class="title-gradient" data-aos="fade-up">
+          LỘ VÒNG CUNG — DẤU ẤN GIỮA THIÊN NHIÊN VÀ LỊCH SỬ
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="120">
+          Đường tỉnh 923, hay Lộ Vòng Cung, uốn cong ôm trọn vùng ngoại thành
+          phía Tây Nam Cần Thơ. Từ "vành đai lửa" đến "vành đai xanh" — hành
+          trình của lịch sử, con người và thiên nhiên.
+        </p>
+
+        <div class="actions" data-aos="fade-up" data-aos-delay="220">
+          <button
+            class="cta-primary"
+            onclick="document.getElementById('diemdi').scrollIntoView({behavior:'smooth'})"
+          >
+            Khám phá các điểm
+          </button>
+          <button
+            class="cta-primary"
+            style="
+              background: transparent;
+              color: var(--ivory);
+              border: 2px solid rgb(249, 251, 255);
+            "
+            onclick="document.getElementById('gioithieu').scrollIntoView({behavior:'smooth'})"
+          >
+            Tìm hiểu thêm
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- INTRO -->
+      <section class="intro" id="gioithieu">
+        <div class="text" data-aos="fade-right">
+          <h2>Giới thiệu tóm tắt</h2>
+          <p>
+            Lộ Vòng Cung (ĐT.923) hình thành từ năm 1930, dài gần 30km, nối chân
+            cầu Cái Răng đến ngã ba Lộ Tẻ. Trước 1975, đây là vành đai chiến
+            lược — chứng tích của nhiều trận đánh quan trọng. Ngày nay, hành
+            trình đó đã được hồi sinh thành cảnh quan vườn cây xanh mướt và là
+            điểm đến du lịch sinh thái độc đáo của Cần Thơ.
+          </p>
+          <p style="color: var(--muted); margin-top: 12px">
+            Mục tiêu của trang web: lưu giữ tư liệu, giáo dục công chúng, và kết
+            nối cộng đồng để bảo tồn giá trị lịch sử – văn hóa.
+          </p>
+        </div>
+
+        <div class="visual" data-aos="fade-left">
+          <img src="./image/lvc.webp" alt="Lộ Vòng Cung" />
+        </div>
+      </section>
+
+      <!-- CARDS (9 điểm) -->
+      <section id="diemdi">
+        <h2 style="font-family: Playfair Display; margin-top: 30px">
+          Các điểm di sản nổi bật
+        </h2>
+
+        <div class="cards">
+          <!-- 1 -->
+          <article class="card" data-aos="zoom-in" tabindex="0">
+            <div class="thumb">
+              <img
+                src="./image/khutuongniem_ditich_lovongcung.webp"
+                alt="Khu tưởng niệm"
+              />
+            </div>
+            <div class="body">
+              <h3>Khu tưởng niệm Lộ Vòng Cung</h3>
+              <p>
+                Khu tưởng niệm và nhà truyền thống trưng bày tư liệu, hiện vật
+                về tuyến Lộ Vòng Cung và tinh thần chiến đấu của quân dân Tây
+                Đô.
+              </p>
+              <div class="more" onclick="openModal('p1')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="40"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img src="./image/LO_VONG_CUNG.jpg" alt="Chuyển quân" />
+            </div>
+            <div class="body">
+              <h3>Địa điểm chuyển quân & trạm quân y</h3>
+              <p>
+                Hệ thống các điểm chuyển quân, trạm quân y tiền phương và nơi
+                cất giấu vũ khí dọc tuyến Lộ Vòng Cung — tuyến hậu cần quan
+                trọng.
+              </p>
+              <div class="more" onclick="openModal('p2')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="80"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img src="./image/DI_TICH_ONG_HAO.jpg" alt="Ông Hào" />
+            </div>
+            <div class="body">
+              <h3>Chiến thắng Ông Hào (1965)</h3>
+              <p>
+                Trận đánh lớn của Tiểu đoàn Tây Đô tại kênh Ông Hào (08/06/1965)
+                — chiến công tiêu biểu trong kháng chiến.
+              </p>
+              <div class="more" onclick="openModal('p3')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="120"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img src="./image/CHIEN_THANG_ONG_DUA.jpg" alt="Ông Đưa" />
+            </div>
+            <div class="body">
+              <h3>Chiến thắng Ông Đưa (1960)</h3>
+              <p>
+                Trận phục kích và chiến thắng tại Rạch Ông Đưa (06/06/1960) —
+                bước ngoặt tinh thần cho lực lượng Tây Đô.
+              </p>
+              <div class="more" onclick="openModal('p4')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="160"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img
+                src="./image/khu-di-tich-lich-su-gian-gua.jpg"
+                alt="Giàn Gừa"
+              />
+            </div>
+            <div class="body">
+              <h3>Di tích Giàn Gừa</h3>
+              <p>
+                Giàn gừa nguyên sinh — nơi từng hoạt động cách mạng, cất giấu vũ
+                khí và tổ chức huấn luyện biệt động trong kháng chiến.
+              </p>
+              <div class="more" onclick="openModal('p5')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img
+                src="./image/tieu_doan_tay_do_ong_cuu .webp"
+                alt="Rạch Ông Cửu"
+              />
+            </div>
+            <div class="body">
+              <h3>Chiến thắng tại Rạch Ông Cửu (1968)</h3>
+              <p>
+                Vị trí ghi dấu các hoạt động và trận đánh của Tiểu đoàn Tây Đô
+                năm 1968 — một phần quan trọng của phong trào tổng tiến công.
+              </p>
+              <div class="more" onclick="openModal('p6')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 7 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="240"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img src="./image/canculomo.jpg" alt="Căn cứ Lò Mo" />
+            </div>
+            <div class="body">
+              <h3>Căn cứ Huyện ủy Ô Môn (Lò Mo)</h3>
+              <p>
+                Căn cứ lõm chỉ huy của Huyện ủy Ô Môn giai đoạn 1971–1975 — nơi
+                tổ chức chỉ đạo nhiều hoạt động cách mạng.
+              </p>
+              <div class="more" onclick="openModal('p7')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 8 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="280"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img
+                src="./image/tieu_doan_tay_do_ong_cuu .webp"
+                alt="Cầu Nhiếm"
+              />
+            </div>
+            <div class="body">
+              <h3>Thảm sát Cầu Nhiếm (1966)</h3>
+              <p>
+                Địa điểm xảy ra cuộc thảm sát dân thường (09/08/1966) — hiện có
+                bia tưởng niệm và hoạt động tưởng niệm hằng năm.
+              </p>
+              <div class="more" onclick="openModal('p8')">Xem chi tiết →</div>
+            </div>
+          </article>
+
+          <!-- 9 -->
+          <article
+            class="card"
+            data-aos="zoom-in"
+            data-aos-delay="320"
+            tabindex="0"
+          >
+            <div class="thumb">
+              <img src="./image/can_cu_vuon_man.webp" alt="Vườn mận" />
+            </div>
+            <div class="body">
+              <h3>Vườn mận — Căn cứ Tết Mậu Thân (1968)</h3>
+              <p>
+                Vườn mận là căn cứ chỉ huy và nơi xuất phát các mũi tiến công
+                trong Tết Mậu Thân 1968 tại Cần Thơ.
+              </p>
+              <div class="more" onclick="openModal('p9')">Xem chi tiết →</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- MAP AREA (QGIS embed placeholder) -->
+      <section id="ban-do">
+        <h2 style="font-family: Playfair Display; margin-top: 34px">
+          Bản đồ tuyến (chèn từ QGIS)
+        </h2>
+
+        <div id="map-area" data-aos="fade-up">
+          <strong
+            >Chèn bản đồ QGIS (GeoTIFF / GeoJSON / Web export) tại đây</strong
+          >
+          <div class="hint">
+            Gợi ý: bạn có thể xuất Web map (Leaflet/GeoJSON) hoặc ảnh SVG/PNG từ
+            QGIS rồi chèn ở vùng này. Khi có file, mình sẽ hướng dẫn cụ thể cách
+            nhúng.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div
+        class="footer-inner"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 20px 0;
+        "
+      >
+        <p>© <span id="year"></span> Lộ Vòng Cung — Trang giáo dục di sản</p>
+        <p style="opacity: 0.9">
+          Từ vành đai lửa đến vành đai xanh — bảo tồn ký ức, kết nối tương lai
+        </p>
+        <p>
+          <a
+            href="survey.html"
+            target="_blank"
+            style="color: #007bff; text-decoration: none"
+          >
+            💬 Khảo sát ý kiến người dùng
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modalRoot" class="modal-backdrop" role="dialog" aria-hidden="true">
+      <div class="modal" role="document" aria-modal="true">
+        <div class="modal-header">
+          <h3 id="modalTitle">Tiêu đề</h3>
+          <button
+            onclick="closeModal()"
+            aria-label="Đóng"
+            style="
+              background: none;
+              border: none;
+              font-size: 20px;
+              cursor: pointer;
+            "
+          >
+            ✕
+          </button>
+        </div>
+        <div id="modalBody">
+          <p>Loading...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 650, once: true, easing: "ease-out-cubic" });
+      document.getElementById("year").innerText = new Date().getFullYear();
+
+      // navbar shadow on scroll
+      const nav = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) nav.classList.add("scrolled");
+        else nav.classList.remove("scrolled");
+      });
+
+      // Data for 9 points (modal content). Bạn có thể thay img src / chỉnh text tại đây.
+      const points = {
+        p1: {
+          title: "Khu tưởng niệm Lộ Vòng Cung",
+          html: `
+          <p><strong>Vị trí:</strong> Mỹ Khánh, Phong Điền, TP. Cần Thơ.</p>
+          <p><strong>Tổng quan:</strong> Một quần thể di tích lịch sử quốc gia tại xã Mỹ Khánh, huyện Phong Điền, Cần Thơ, ghi dấu những sự kiện lịch sử quan trọng trong kháng chiến chống Mỹ, đặc biệt là Cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân 1968.
+</p>
+          <div class="gallery">
+            <img src="https://i-vnexpress.vnecdn.net/2019/10/04/khu-den-3109-1570170946.jpg">
+            <img src="https://i-vnexpress.vnecdn.net/2019/10/04/vi-tri-1-3485-1570173584.jpg">
+            </div>
+          <p class="meta">Nguồn: Hồ sơ khoa học, tư liệu lưu trữ địa phương.</p>`,
+        },
+
+        p2: {
+          title:
+            "Địa điểm chuyển quân, Trạm quân y tiền phương & nơi cất giấu vũ khí",
+          html: `
+          <p><strong>Vị trí:</strong> Nhiều vị trí dọc tuyến Lộ Vòng Cung (Mỹ Nhơn, Mỹ Thuận, Mỹ Long,...).</p>
+          <p><strong>Tổng quan:</strong> Những địa điểm này đóng vai trò hậu cần, chuyển quân, nuôi chứa cán bộ và cất giấu vũ khí — là hệ mạch quan trọng trong hoạt động cách mạng vùng Tây Đô.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Chuyển quân"></div>
+          <p class="meta">Ghi chú: hiện vật, biên bản và lời nhân chứng đang được sưu tầm để trưng bày.</p>`,
+        },
+
+        p3: {
+          title: "Chiến thắng Ông Hào (08/06/1965)",
+          html: `
+          <p><strong>Vị trí:</strong> Ấp Trường Thọ I, xã Trường Long (Phong Điền).</p>
+          <p><strong>Sự kiện:</strong> Trận kênh Ông Hào do Tiểu đoàn Tây Đô tổ chức — tiêu diệt lực lượng địch, bắn rơi máy bay B57 và thu nhiều chiến lợi phẩm; là chiến thắng vang dội của lực lượng Cần Thơ.
+</p>
+          <div class="gallery"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrcRGxi7LlQGyvGtwrOdMaWtxwWoxrLX-P30xwsXZDLnC6KgqnMJhLXFBdXgXiMR6lSaZXUxVdE2SGqI09X7CEC0GJFo3PlDKEbKD54_k3Uo-BkNkJjSE6_MbTu2UW4tBLSyZ0_=s1360-w1360-h1020-rw" alt="Ông Hào">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nouxcO4ozxq_T9fdcH2mT4fmeC01K834Kfw6llen_rb7u3RoB7aIQsO_G64MSqoUYl7PJDynHA2U_P3hSZYDZRBOC0tupMe8fsCwFQvlyiZHAlwhnZSH9MQfzoAGkZ_2W_Yj4A-=s1360-w1360-h1020-rw" alt="Ông Hào">
+        
+            </div>
+          <p class="meta">Nguồn: Tư liệu trận đánh, hiện vật trong nhà truyền thống.</p>`,
+        },
+
+        p4: {
+          title: "Chiến thắng Ông Đưa (06/06/1960)",
+          html: `
+          <p><strong>Vị trí:</strong> Ấp Định Khánh A, xã Định Môn (Ô Môn).</p>
+          <p><strong>Sự kiện:</strong> Trận phục kích của Tiểu đoàn Tây Đô tại rạch Ông Đưa — chiến thắng quan trọng đầu những năm 1960, góp phần nâng cao tinh thần và khả năng tác chiến của lực lượng địa phương.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1549887534-4f9a1f2c3a2a?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Ông Đưa"></div>
+          <p class="meta">Nguồn: Lời kể nhân chứng, hồ sơ lưu trữ.</p>`,
+        },
+
+        p5: {
+          title: "Di tích Giàn Gừa",
+          html: `
+          <p><strong>Vị trí:</strong> Xã Nhơn Nghĩa, huyện Phong Điền.</p>
+          <p><strong>Tổng quan:</strong> Giàn gừa lớn với nhiều huyền thoại địa phương; trong kháng chiến đây là nơi hoạt động, huấn luyện và cất giấu vũ khí, đồng thời là địa điểm tổ chức nhiều hoạt động cách mạng.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Giàn Gừa"></div>
+          <p class="meta">Gợi ý trưng bày: ảnh toàn cảnh giàn gừa, hiện vật dân gian và di tích miếu thờ.</p>`,
+        },
+
+        p6: {
+          title: "Chiến thắng tại Rạch Ông Cửu (1968)",
+          html: `
+          <p><strong>Vị trí:</strong> Một trong những điểm tác chiến trên tuyến Lộ Vòng Cung (gần Rạch Ông Cửu).</p>
+          <p><strong>Sự kiện:</strong> Các trận đánh năm 1968 liên quan tới tổng tiến công Mậu Thân — Rạch Ông Cửu là điểm tiêu biểu nơi Tiểu đoàn Tây Đô và lực lượng địa phương đánh thắng nhiều trận lớn nhỏ.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c0?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Rạch Ông Cửu"></div>
+          <p class="meta">Nguồn: Hồ sơ đơn vị, hiện vật và sơ đồ trận đánh.</p>`,
+        },
+
+        p7: {
+          title: "Căn cứ Huyện ủy Ô Môn (Lò Mo) 1971–1975",
+          html: `
+          <p><strong>Vị trí:</strong> Ấp Trường Tây (Trường Thành/Trường Xuân khu vực Ô Môn).</p>
+          <p><strong>Tổng quan:</strong> Căn cứ Lò Mo là nơi Huyện ủy Ô Môn hoạt động chỉ đạo trong giai đoạn kháng chiến, tổ chức họp bàn, triển khai kế hoạch và là nhân tố quan trọng trong quản trị kháng chiến địa phương.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Lò Mo"></div>
+          <p class="meta">Gợi ý: lưu trữ bản đồ/công văn liên quan để trưng bày.</p>`,
+        },
+
+        p8: {
+          title: "Thảm sát Cầu Nhiếm (09/08/1966)",
+          html: `
+          <p><strong>Vị trí:</strong> Ấp Trường Đông A, xã Tân Thới, huyện Phong Điền.</p>
+          <p><strong>Sự kiện:</strong> Vụ ném bom/đàn áp dân thường tại Cầu Nhiếm (09/08/1966) gây thương vong lớn; nơi đây có bia tưởng niệm được dựng để ghi nhớ nạn nhân.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1500522144261-ea64433bbe27?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Cầu Nhiếm"></div>
+          <p class="meta">Ghi chú: cần tiếp tục sưu tầm lời kể nhân chứng và danh sách nạn nhân để hoàn chỉnh hồ sơ.</p>`,
+        },
+
+        p9: {
+          title: "Vườn mận — Căn cứ Tết Mậu Thân (1968)",
+          html: `
+          <p><strong>Vị trí:</strong> Vườn mận dọc tuyến Lộ Vòng Cung (vùng Phong Điền / Mỹ Khánh).</p>
+          <p><strong>Ý nghĩa:</strong> Vườn mận là căn cứ chỉ huy, nơi tổ chức nhiều mũi tiến công trong Tết Mậu Thân 1968, đóng vai trò then chốt trong các hoạt động thọc sâu vào nội đô Cần Thơ.</p>
+          <div class="gallery"><img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c0?q=80&w=900&auto=format&fit=crop&s=placeholder" alt="Vườn mận"></div>
+          <p class="meta">Nguồn: Tư liệu phong trào Mậu Thân, lời nhân chứng.</p>`,
+        },
+      };
+
+      // Modal functions
+      function openModal(id) {
+        const data = points[id];
+        if (!data) return;
+        document.getElementById("modalTitle").innerText = data.title;
+        document.getElementById("modalBody").innerHTML =
+          data.html +
+          `<p style="margin-top:12px;color:var(--muted)">Bạn có thể thêm hình ảnh/clip hoặc tọa độ để hiển thị trên bản đồ.</p>`;
+        document.getElementById("modalRoot").style.display = "flex";
+        document
+          .getElementById("modalRoot")
+          .setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("modalRoot").style.display = "none";
+        document
+          .getElementById("modalRoot")
+          .setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+      document.getElementById("modalRoot").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("modalRoot")) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Expose for console editing if needed
+      window.points = points;
+      window.openModal = openModal;
+      window.closeModal = closeModal;
+    </script>
+  </body>
+</html>
