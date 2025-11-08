@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/ol3-search-layer.min.css">
+        <link href="resources/ol-geocoder.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        <style>
+        html, body {
+            background-color: #ffffff;
+        }
+        .ol-control > * {
+            background-color: #fffcdd!important;
+            color: #444444!important;
+            border-radius: 0px;
+        }
+        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
+            color: #444444!important;
+        }
+        .search-layer-input-search {
+            background-color: #fffcdd!important;
+        }
+        .ol-control > *:focus, .ol-control >*:hover {
+            background-color: rgba(255, 252, 221, 0.7)!important;
+        } 
+        .ol-control {
+            background-color: rgba(255,255,255,.4) !important;
+            padding: 2px !important;
+        } 
+        </style>
+
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+<script src="resources/proj4.js"></script>
+        <script>proj4.defs('EPSG:4326','+proj=longlat +datum=WGS84 +no_defs');</script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="resources/horsey.min.js"></script>
+        <script src="resources/ol3-search-layer.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/ol-geocoder.js"></script>
+        <script src="layers/DiaPhan_Tinh_2025_0.js"></script><script src="layers/CTxamoi_1.js"></script><script src="layers/songhau_2.js"></script><script src="layers/Buffered_3.js"></script><script src="layers/Conngoai_4.js"></script><script src="layers/Conmoi_5.js"></script><script src="layers/BIENDONG_6.js"></script><script src="layers/RanhgioiTP_7.js"></script><script src="layers/RGbien_8.js"></script><script src="layers/Songcantho_9.js"></script><script src="layers/Kenhrachcantho_10.js"></script><script src="layers/CT_RIVER_11.js"></script><script src="layers/CT_ROAD_12.js"></script><script src="layers/CaotocCT_13.js"></script><script src="layers/Phanloaituoidiemdulch_16.js"></script><script src="layers/Phanloaidiemdulich_17.js"></script><script src="layers/Diemdulich_18.js"></script><script src="layers/UBNDTP_19.js"></script><script src="layers/Sanbay_20.js"></script>
+        <script src="styles/DiaPhan_Tinh_2025_0_style.js"></script><script src="styles/CTxamoi_1_style.js"></script><script src="styles/songhau_2_style.js"></script><script src="styles/Buffered_3_style.js"></script><script src="styles/Conngoai_4_style.js"></script><script src="styles/Conmoi_5_style.js"></script><script src="styles/BIENDONG_6_style.js"></script><script src="styles/RanhgioiTP_7_style.js"></script><script src="styles/RGbien_8_style.js"></script><script src="styles/Songcantho_9_style.js"></script><script src="styles/Kenhrachcantho_10_style.js"></script><script src="styles/CT_RIVER_11_style.js"></script><script src="styles/CT_ROAD_12_style.js"></script><script src="styles/CaotocCT_13_style.js"></script><script src="styles/Phanloaituoidiemdulch_16_style.js"></script><script src="styles/Phanloaidiemdulich_17_style.js"></script><script src="styles/Diemdulich_18_style.js"></script><script src="styles/UBNDTP_19_style.js"></script><script src="styles/Sanbay_20_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
