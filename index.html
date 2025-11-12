@@ -136,12 +136,15 @@
         min-height: 60vh;
         display: flex;
         align-items: center;
+        justify-content: center;
       }
+
       .hero .media {
         position: absolute;
         inset: 0;
         overflow: hidden;
       }
+
       .hero video,
       .hero img {
         width: 100%;
@@ -149,6 +152,7 @@
         object-fit: cover;
         display: block;
       }
+
       .hero .overlay {
         position: absolute;
         inset: 0;
@@ -158,7 +162,8 @@
           rgba(6, 23, 60, 0.48)
         );
       }
-      .hero .container {
+
+      <!-- HERO-- > .hero .container {
         position: relative;
         z-index: 10;
         max-width: var(--container);
@@ -166,43 +171,73 @@
         padding: 48px;
       }
 
+      .hero-content-blur {
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(14px) saturate(160%);
+        -webkit-backdrop-filter: blur(14px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 16px 24px;
+        max-width: 820px;
+        color: #ffffff;
+        margin-left: 5%;
+      }
+
       .hero h1 {
-        font-family: Playfair Display;
-        color: var(--ivory);
+        font-family: "Playfair Display", serif;
+        color: var(--ivory, #fff);
         font-size: 38px;
-        line-height: 1.02;
+        line-height: 1.1;
         margin: 0;
       }
+
       .hero p {
         color: rgba(249, 250, 251, 0.95);
         margin-top: 12px;
-        max-width: 740px;
+        max-width: 720px;
       }
-      .hero .actions {
-        margin-top: 20px;
-        display: flex;
-        gap: 12px;
-      }
-      /* Thông tin nhóm thực hiện và GVHD */
+
       .hero-info {
         position: absolute;
-        bottom: 20px;
+        bottom: 24px;
         left: 0;
         right: 0;
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
         padding: 0 48px;
-        color: rgba(255, 255, 255, 0.9);
+        z-index: 12;
+      }
+
+      .blur-box {
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px) saturate(150%);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 6px 12px;
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.92);
         font-size: 14px;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        white-space: nowrap;
       }
-      .hero-left p {
-        margin: 2px 0;
-      }
+
+      .hero-left p,
       .hero-right p {
-        margin: 2px 0;
-        padding-right: 10px;
+        margin: 0;
       }
+
+      .hero-left {
+        text-align: left;
+      }
+
+      .hero-right {
+        text-align: right;
+      }
+
       /* AUDIO + CHỮ CHẠY */
       .audio-banner {
         background: #f1f5f9;
@@ -741,7 +776,7 @@
           </div>
 
           <div>
-            <div class="site-name">Dự án nghiên cứu khoa học</div>
+            <div class="site-name">Dự án nghiên cứu khoa học kỹ thuật</div>
             <div style="font-size: 12px; color: var(--muted)">
               Lĩnh vực Phần mềm hệ thống
             </div>
@@ -765,54 +800,33 @@
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="media" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="./image/lvc-1.jpg">
-          <img
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&s=placeholder"
-            alt="Lộ Vòng Cung - Cần Thơ"
-          />
-        </video>
+        <img src="./image/lvc-1.jpg" alt="Lộ Vòng Cung - Cần Thơ" />
         <div class="overlay"></div>
       </div>
 
       <div class="container">
-        <h1 class="title-gradient" data-aos="fade-up">
-          LỘ VÒNG CUNG — DẤU ẤN GIỮA THIÊN NHIÊN VÀ LỊCH SỬ
-        </h1>
-        <p data-aos="fade-up" data-aos-delay="120">
-          Đường tỉnh 923, hay Lộ Vòng Cung, uốn cong ôm trọn vùng ngoại thành
-          phía Tây Nam Cần Thơ. Từ "vành đai lửa" đến "vành đai xanh" — hành
-          trình của lịch sử, con người và thiên nhiên.
-        </p>
+        <!-- Khung mờ chính cho tiêu đề + mô tả -->
+        <div class="hero-content-blur">
+          <h1 class="title-gradient" data-aos="fade-up">
+            LỘ VÒNG CUNG - DẤU ẤN GIỮA THIÊN NHIÊN VÀ LỊCH SỬ
+          </h1>
 
-        <div class="actions" data-aos="fade-up" data-aos-delay="220">
-          <button
-            class="cta-primary"
-            onclick="document.getElementById('diemdi').scrollIntoView({behavior:'smooth'})"
-          >
-            Khám phá các điểm
-          </button>
-          <button
-            class="cta-primary"
-            style="
-              background: transparent;
-              color: var(--ivory);
-              border: 2px solid rgb(249, 251, 255);
-            "
-            onclick="document.getElementById('gioithieu').scrollIntoView({behavior:'smooth'})"
-          >
-            Tìm hiểu thêm
-          </button>
+          <p data-aos="fade-up" data-aos-delay="120">
+            Lộ Vòng Cung - Đường tỉnh 923 uốn cong ôm trọn vùng ngoại thành phía
+            Tây Nam trung tâm Thành phố Cần Thơ. Từ "vành đai lửa" đến "vành đai
+            xanh" - hành trình của lịch sử, con người và thiên nhiên.
+          </p>
         </div>
-      </div>
 
-      <!-- Thông tin nhóm thực hiện và GVHD -->
-      <div class="hero-info">
-        <div class="hero-left">
-          <p>Thực hiện: Nguyễn Thị Thảo My</p>
-          <p style="margin-left: 80px">Trần Lê Bảo Châu</p>
-        </div>
-        <div class="hero-right">
-          <p>GVHD: Nguyễn Thành Đạt</p>
+        <!-- Hai khung mờ nhỏ ở 2 góc -->
+        <div class="hero-info">
+          <div class="blur-box hero-left">
+            <p>Thực hiện: Nguyễn Thị Thảo My</p>
+            <p>Trần Lê Bảo Châu</p>
+          </div>
+          <div class="blur-box hero-right">
+            <p>GVHD: Nguyễn Thành Đạt</p>
+          </div>
         </div>
       </div>
     </section>
@@ -892,33 +906,33 @@
         <div class="text" data-aos="fade-right">
           <h2>Giới thiệu chung</h2>
           <p style="text-align: justify">
-            Lộ Vòng Cung (ĐT.923) hình thành từ năm 1930, dài gần 30km, nối chân
-            cầu Cái Răng đến ngã ba Lộ Tẻ. Trước 1975, đây là vành đai chiến
-            lược — chứng tích của nhiều trận đánh quan trọng. Ngày nay, hành
-            trình đó đã được hồi sinh thành cảnh quan vườn cây xanh mướt và là
-            điểm đến du lịch sinh thái độc đáo của Cần Thơ.
+            Lộ Vòng Cung (ĐT.923) hình thành từ năm 1930, dài gần 30km, nối từ
+            chân cầu Cái Răng đến ngã ba Lộ Tẻ quốc lộ 91. Trước 1975, đây là
+            vành đai chiến lược - chứng tích của nhiều trận đánh quan trọng.
+            Ngày nay, hành trình đó đã được hồi sinh thành cảnh quan vườn cây
+            xanh mướt và là điểm đến du lịch sinh thái độc đáo của Cần Thơ.
           </p>
 
           <h2>Lộ Vòng Cung – Dấu ấn lịch sử trên đất Tây Đô</h2>
           <p style="text-align: justify">
             Đường tỉnh 923, quen gọi là Lộ Vòng Cung, uốn cong như cánh cung ôm
-            trọn vùng ngoại thành phía Tây Nam Cần Thơ. Ngày nay, con đường xanh
-            mát vườn cây trái này là điểm nhấn du lịch sinh thái, nhưng hơn nửa
-            thế kỷ trước, nơi đây từng là “vành đai lửa”, gắn với những năm
-            tháng kháng chiến ác liệt, biểu tượng của ý chí kiên cường và sự hi
-            sinh anh dũng của quân dân Tây Đô. Tuyến đường này được hình thành
-            từ năm 1930, khi thực dân Pháp cho mở con lộ dọc theo sông Cần Thơ,
-            nối từ chân cầu Cái Răng đến chợ Phong Điền rồi ra ngã ba Lộ Tẻ, dài
-            gần 30km. Sau ngày đất nước thống nhất, đoạn đường được gọi chính
-            thức là Đường tỉnh 923, nhưng trong ký ức người dân, cái tên Lộ Vòng
-            Cung vẫn luôn gợi nhắc về một thời bom đạn.
+            trọn vùng ngoại thành phía Tây Nam trung tâm Thành phố Cần Thơ. Ngày
+            nay, con đường xanh mát vườn cây trái này là điểm nhấn du lịch sinh
+            thái, nhưng hơn nửa thế kỷ trước, nơi đây từng là “vành đai lửa”,
+            gắn với những năm tháng kháng chiến ác liệt, biểu tượng của ý chí
+            kiên cường và sự hy sinh anh dũng của quân dân Tây Đô. Tuyến đường
+            này được hình thành từ năm 1930, khi thực dân Pháp cho mở con lộ dọc
+            theo sông Cần Thơ, nối từ chân cầu Cái Răng đến chợ Phong Điền rồi
+            ra ngã ba Lộ Tẻ, dài gần 30km. Sau ngày đất nước thống nhất, đoạn
+            đường được gọi chính thức là Đường tỉnh 923, nhưng trong ký ức người
+            dân, cái tên Lộ Vòng Cung vẫn luôn gợi nhắc về một thời bom đạn.
           </p>
           <h2>Vị trí chiến lược – Chiến trường ác liệt</h2>
           <p style="text-align: justify">
             Trước năm 1975, địch gọi tuyến này là Hương Lộ 4, còn ta gọi là Lộ
             Vòng Cung – một địa bàn quân sự quan trọng. Đây được xem là “vành
-            đai bảo vệ” các căn cứ quân sự của Mỹ – Ngụy tại Cần Thơ như sân bay
-            Trà Nóc, sân bay Bình Thủy và bộ chỉ huy tiểu khu Phong Dinh. Chính
+            đai bảo vệ” các căn cứ quân sự của Mỹ - Ngụy tại Cần Thơ như sân bay
+            Trà Nóc, sân bay Bình Thủy và Bộ chỉ huy tiểu khu Phong Dinh. Chính
             vì vậy, kẻ địch đã lập hàng trăm đồn bốt, chi khu, yếu khu trên toàn
             tuyến để ngăn chặn bước tiến của quân giải phóng. Nhận thức rõ tầm
             quan trọng ấy, lực lượng cách mạng sớm coi Lộ Vòng Cung là bàn đạp
@@ -930,47 +944,48 @@
           <h2>Những chiến công vang dội</h2>
           <p style="text-align: justify">
             Một trong những trận đánh đi vào lịch sử là trận kênh Ông Hào ngày
-            8/6/1965, do Tiểu đoàn Tây Đô thực hiện. Bằng cách đánh sáng tạo,
+            08/06/1965, do Tiểu đoàn Tây Đô thực hiện. Bằng cách đánh sáng tạo,
             kết hợp phòng ngự ban ngày và tập kích ban đêm, ta đã tiêu diệt
             nhiều sinh lực địch. Đặc biệt, chiến sĩ liên lạc Huỳnh Văn Tèo đã
-            dùng súng trường bắn rơi một máy bay B57 – chiến công hiếm có trong
-            kháng chiến. Đỉnh cao là Tổng tiến công Tết Mậu Thân 1968. Tại căn
-            cứ vườn mận trên tuyến Lộ Vòng Cung, nhiều đồng chí lãnh đạo đã trực
-            tiếp chỉ huy lực lượng, mở các mũi tiến công thọc sâu vào nội đô Cần
-            Thơ. Trận đánh kéo dài nhiều ngày, gây cho địch tổn thất nặng nề,
-            làm rung chuyển hệ thống phòng thủ Tây Đô. Vườn mận khi ấy trở thành
-            “căn cứ lõm” táo bạo, ngay sát đầu não địch nhưng chúng không dám
-            càn quét vì sự hiểm trở của địa hình và sự che chở của nhân dân. Sau
-            năm 1968, phong trào chiến tranh nhân dân trên tuyến Vòng Cung tiếp
-            tục phát triển mạnh. Các đơn vị du kích, tiểu đoàn chủ lực kiên trì
-            bám dân, bám đất, từng bước giành lại thế trận, làm thất bại nhiều
-            âm mưu bình định của kẻ thù. Đến những ngày cuối tháng 4/1975, Lộ
-            Vòng Cung đã trở thành cửa ngõ quyết định cho chiến dịch giải phóng
-            Cần Thơ. Ngày 30/4 lịch sử, quân giải phóng vượt qua tuyến lửa này,
+            dùng súng trường bắn rơi một máy bay B57 - chiến công hiếm có trong
+            kháng chiến. Đỉnh cao là Tổng tiến công Tết Mậu Thân 1968. Tại Căn
+            cứ Vườn Mận, nhiều đồng chí lãnh đạo đã trực tiếp chỉ huy lực lượng,
+            mở các mũi tiến công thọc sâu vào nội đô Cần Thơ. Trận đánh kéo dài
+            nhiều ngày, gây cho địch tổn thất nặng nề, làm rung chuyển hệ thống
+            phòng thủ Tây Đô. Vườn Mận khi ấy đã trở thành “căn cứ lõm” táo bạo,
+            ngay sát đầu não địch nhưng chúng không dám càn quét vì sự hiểm trở
+            của địa hình và sự che chở của nhân dân. Sau năm 1968, phong trào
+            chiến tranh nhân dân trên tuyến Lộ Vòng Cung tiếp tục phát triển
+            mạnh. Các đơn vị du kích, tiểu đoàn chủ lực kiên trì bám dân, bám
+            đất, từng bước giành lại thế trận, làm thất bại nhiều âm mưu bình
+            định của kẻ thù. Đến những ngày cuối tháng 4/1975, Lộ Vòng Cung đã
+            trở thành cửa ngõ quyết định cho chiến dịch giải phóng Cần Thơ. Ngày
+            30/4/1975 lịch sử, quân giải phóng vượt qua phòng tuyến lửa này,
             đánh tan các trung đoàn và đoàn xe thiết giáp địch, tiến thẳng vào
-            trung tâm, góp phần làm sụp đổ hoàn toàn bộ máy chiến tranh của Mỹ –
-            Ngụy ở miền Tây Nam Bộ.
+            trung tâm thành phố, góp phần làm sụp đổ hoàn toàn bộ máy chiến
+            tranh của Mỹ - Ngụy ở miền Tây Nam Bộ.
           </p>
           <h2>Từ “vành đai lửa” đến “vành đai xanh”</h2>
           <p style="text-align: justify">
-            Nếu Sài Gòn có “đất thép Củ Chi”, thì Cần Thơ có Lộ Vòng Cung rực
-            lửa – nơi ghi dấu hàng ngàn chiến công và sự hi sinh quên mình. Ngày
-            nay, chiến tranh đã lùi xa, hố bom năm nào được thay thế bằng những
-            vườn cây trĩu quả. Tuyến đường được mở rộng, khang trang, chạy dọc
-            theo sông Cần Thơ qua chợ nổi Cái Răng, khu du lịch Mỹ Khánh và
-            những vườn cây ăn trái trù phú ở Phong Điền – đặc biệt là thương
-            hiệu dâu Hạ Châu nức tiếng. Lộ Vòng Cung hôm nay không chỉ là trục
-            giao thông quan trọng, mà còn là điểm đến du lịch sinh thái hấp dẫn,
-            nơi du khách vừa có thể thưởng ngoạn cảnh quan miệt vườn, vừa tìm
-            hiểu về những trang sử hào hùng. Từ một vùng “đất lửa”, Lộ Vòng Cung
-            đã thực sự hồi sinh thành “vành đai xanh”, minh chứng cho sức sống
-            bền bỉ và tinh thần bất khuất của quân dân Cần Thơ.
+            Nếu Sài Gòn có “đất thép Củ Chi”, thì Cần Thơ có "Lộ Vòng Cung rực
+            lửa" - nơi ghi dấu hàng ngàn chiến công và sự hy sinh quên mình.
+            Ngày nay, chiến tranh đã lùi xa, hố bom năm nào được thay thế bằng
+            những vườn cây trái trĩu quả. Tuyến đường được mở rộng, khang trang,
+            chạy dọc theo sông Cần Thơ qua chợ nổi Cái Răng, khu du lịch Mỹ
+            Khánh và những vườn cây ăn trái trù phú ở Phong Điền - đặc biệt là
+            thương hiệu dâu Hạ Châu nức tiếng gần xa. Lộ Vòng Cung hôm nay không
+            chỉ là trục giao thông quan trọng, mà còn là điểm đến du lịch sinh
+            thái hấp dẫn, nơi du khách vừa có thể thưởng ngoạn cảnh quan miệt
+            vườn, vừa tìm hiểu về những trang sử hào hùng. Từ một vùng “đất
+            lửa”, Lộ Vòng Cung đã thực sự hồi sinh thành “vành đai xanh”, là
+            minh chứng cho sức sống bền bỉ và tinh thần bất khuất của quân dân
+            Cần Thơ.
           </p>
         </div>
 
         <!--Thêm phần hình ảnh và video minh họa -->
         <div class="visual" data-aos="fade-left">
-          <img src="./image/lvc.webp" alt="Lộ Vòng Cung" />
+          <img src="./image/lvcc.jpg" alt="Lộ Vòng Cung" />
           <p class="video-caption">Hình ảnh. Lộ vòng cung uốn lượn quanh co</p>
           <p class="video-caption">Nguồn: https://bit.ly/4orObS1</p>
 
@@ -1054,9 +1069,9 @@
               <p>
                 Trong thời kỳ kháng chiến, Lộ Vòng Cung là tuyến giao thông
                 chiến lược của quân dân miền Tây Nam Bộ. Con đường quanh co, bao
-                bọc phía Tây thành phố Cần Thơ, từng là nơi diễn ra nhiều trận
-                đánh oanh liệt, gắn liền với bao hy sinh của lực lượng cách
-                mạng.
+                bọc phía Tây trung tâm thành phố Cần Thơ, từng là nơi diễn ra
+                nhiều trận đánh oanh liệt, gắn liền với bao hy sinh của lực
+                lượng cách mạng.
               </p>
               <img src="./image/lovongcungxua.jpg" alt="Lộ Vòng Cung xưa" />
               <p class="img-caption">Hình ảnh tư liệu về Lộ Vòng Cung xưa</p>
@@ -1339,7 +1354,7 @@
           </article>
 
           <!-- 13 -->
-          <article
+          <!--<article
             class="card"
             data-aos="zoom-in"
             data-aos-delay="320"
@@ -1361,7 +1376,7 @@
               </p>
               <div class="more" onclick="openModal('p22')">Xem chi tiết →</div>
             </div>
-          </article>
+          </article>-->
         </div>
       </section>
 
@@ -1468,7 +1483,7 @@
           </article>
 
           <!-- 18 -->
-          <article
+          <!--<article
             class="card"
             data-aos="zoom-in"
             data-aos-delay="240"
@@ -1490,7 +1505,7 @@
               </p>
               <div class="more" onclick="openModal('p17')">Xem chi tiết →</div>
             </div>
-          </article>
+          </article>-->
 
           <!-- 19 -->
           <article
@@ -1611,40 +1626,46 @@
         <h2>Bản đồ Lộ Vòng Cung</h2>
 
         <div class="imggis-grid">
-          <!-- Bản đồ tuổi -->
-          <div class="imggis-card">
-            <h3>
-              Phân bố các điểm di tích, tham quan trên tuyến Lộ Vòng Cung theo
-              tuổi
-            </h3>
-            <a href="./image/LVC_tuoi.png" target="_blank">
-              <img src="./image/LVC_tuoi.png" alt="Bản đồ tuổi" />
-            </a>
-            <p class="imggis-caption">Nguồn: Nhóm tác giả</p>
-          </div>
-
-          <!-- Bản đồ vành đai -->
-          <div class="imggis-card">
-            <h3>
-              Phân tích phép lân cận của các điểm di tích, tham quan trên tuyến
-              Lộ Vòng Cung (Bán kính 5km)
-            </h3>
-            <a href="./image/LVC_vanhdai.png" target="_blank">
-              <img src="./image/LVC_vanhdai.png" alt="Bản đồ vành đai" />
-            </a>
-            <p class="imggis-caption">Nguồn: Nhóm tác giả</p>
-          </div>
-
           <!-- Bản đồ xếp loại -->
           <div class="imggis-card">
-            <h3>
-              Phân bố các điểm di tích, tham quan trên tuyến Lộ Vòng Cung theo
-              xếp loại
+            <h3 style="text-align: justify">
+              Ứng duụng GIS thể hiện sự phân bố các điểm di tích, tham quan trên
+              tuyến Lộ Vòng Cung theo cấp xếp loại
             </h3>
             <a href="./image/LVC_xeploai.png" target="_blank">
               <img src="./image/LVC_xeploai.png" alt="Bản đồ xếp loại" />
             </a>
-            <p class="imggis-caption">Nguồn: Nhóm tác giả</p>
+            <p class="imggis-caption">
+              Nguồn: Nhóm tác giả thành lập bản đồ trên ứng dụng QGIS
+            </p>
+          </div>
+
+          <!-- Bản đồ tuổi -->
+          <div class="imggis-card">
+            <h3 style="text-align: justify">
+              Ứng dụng GIS thể hiện sự phân bố các điểm di tích, tham quan trên
+              tuyến Lộ Vòng Cung theo nhóm tuổi (niên đại)
+            </h3>
+            <a href="./image/LVC_tuoi.png" target="_blank">
+              <img src="./image/LVC_tuoi.png" alt="Bản đồ tuổi" />
+            </a>
+            <p class="imggis-caption">
+              Nguồn: Nhóm tác giả thành lập bản đồ trên ứng dụng QGIS
+            </p>
+          </div>
+
+          <!-- Bản đồ vành đai -->
+          <div class="imggis-card">
+            <h3 style="text-align: justify">
+              Ứng dụng GIS phân tích tính lân cận (Proximity-Raster Distance)
+              của các điểm di tích, tham quan trên tuyến Lộ Vòng Cung
+            </h3>
+            <a href="./image/LVC_vanhdai.png" target="_blank">
+              <img src="./image/LVC_vanhdai.png" alt="Bản đồ vành đai" />
+            </a>
+            <p class="imggis-caption">
+              Nguồn: Nhóm tác giả thành lập bản đồ trên ứng dụng QGIS
+            </p>
           </div>
         </div>
       </div>
@@ -3012,7 +3033,7 @@ Hãy đến và cảm nhận – nơi mọi trải nghiệm đều mang hơi th�
         document.getElementById("modalTitle").innerText = data.title;
         document.getElementById("modalBody").innerHTML =
           data.html +
-          `<p style="margin-top:12px;color:var(--muted)">Thông tin đang được cập nhật...</p>`;
+          `<p style="margin-top:12px;color:var(--muted)">Ảnh: Internet, sưu tầm</p>`;
         document.getElementById("modalRoot").style.display = "flex";
         document
           .getElementById("modalRoot")
