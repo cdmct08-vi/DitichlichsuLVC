@@ -2,7 +2,7 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=1280, user-scalable=no" />
     <title>Lộ Vòng Cung — Dấu ấn giữa thiên nhiên & lịch sử</title>
     <meta
       name="description"
@@ -729,122 +729,11 @@
           border-radius: 8px;
         }
       }
-
-      /* === Menu di động (hamburger + drawer) === */
-      .mobile-toggle {
-        display: none;
-        background: var(--blue-deep);
-        color: white;
-        border: none;
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 6px 18px rgba(30, 64, 175, 0.12);
-      }
-
-      .mobile-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(2, 6, 23, 0.45);
-        display: none;
-        z-index: 140;
-        transition: opacity 0.28s ease;
-        backdrop-filter: blur(2px);
-      }
-
-      .mobile-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 300px;
-        max-width: 92%;
-        background: #fff;
-        box-shadow: -8px 0 30px rgba(2, 6, 23, 0.12);
-        transform: translateX(110%);
-        transition: transform 0.3s ease;
-        z-index: 150;
-        display: flex;
-        flex-direction: column;
-        padding: 22px;
-        gap: 12px;
-        border-radius: 12px 0 0 12px;
-      }
-      .mobile-drawer.open {
-        transform: translateX(0);
-      }
-      .mobile-drawer .mobile-items {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .mobile-drawer .mobile-items a,
-      .mobile-drawer .mobile-items button {
-        background: transparent;
-        border: none;
-        padding: 12px;
-        border-radius: 10px;
-        font-weight: 700;
-        color: var(--blue-deep);
-        font-size: 16px;
-        text-align: center;
-      }
-      .mobile-drawer .mobile-items a:hover {
-        background: rgba(30, 64, 175, 0.06);
-      }
-
-      /* Responsive cho điện thoại */
-      @media (max-width: 640px) {
-        .menu {
-          display: none;
-        }
-        .mobile-toggle {
-          display: inline-flex;
-        }
-      }
     </style>
   </head>
   <body>
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
-      <!-- Menu di động trượt phải -->
-      <div class="mobile-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
-
-      <aside
-        class="mobile-drawer"
-        id="mobileDrawer"
-        role="dialog"
-        aria-modal="true"
-      >
-        <div class="close-row">
-          <div
-            style="font-weight: 700; color: var(--blue-deep); font-size: 16px"
-          >
-            Menu
-          </div>
-          <button class="close-btn" id="mobileClose" aria-label="Đóng menu">
-            Đóng
-          </button>
-        </div>
-
-        <nav class="mobile-items">
-          <a href="#gioithieu" onclick="closeMobileMenu()">Giới thiệu</a>
-          <a href="#diemdi" onclick="closeMobileMenu()">Điểm di tích</a>
-          <a href="mapweb.html" target="_blank" onclick="closeMobileMenu()"
-            >Bản đồ</a
-          >
-          <button
-            class="cta-primary"
-            onclick="window.open('survey.html', '_blank')"
-          >
-            Liên hệ - góp ý
-          </button>
-        </nav>
-      </aside>
-
       <div class="nav-inner">
         <div class="brand">
           <div class="logo">
@@ -860,23 +749,6 @@
         </div>
 
         <nav class="menu" aria-label="Main navigation">
-          <!-- Nút menu di động -->
-          <button
-            class="mobile-toggle"
-            id="mobileToggle"
-            aria-controls="mobileDrawer"
-            aria-expanded="false"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M3 6h18M3 12h18M3 18h18"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-
           <a href="#gioithieu">Giới thiệu</a>
           <a href="#diemdi">Điểm di tích</a>
           <a href="mapweb.html" target="_blank">Bản đồ</a>
@@ -3165,72 +3037,6 @@ Hãy đến và cảm nhận – nơi mọi trải nghiệm đều mang hơi th�
       window.points = points;
       window.openModal = openModal;
       window.closeModal = closeModal;
-    </script>
-
-    <script>
-      const mobileToggle = document.getElementById("mobileToggle");
-      const mobileBackdrop = document.getElementById("mobileBackdrop");
-      const mobileDrawer = document.getElementById("mobileDrawer");
-      const mobileClose = document.getElementById("mobileClose");
-
-      function openMobileMenu() {
-        mobileDrawer.classList.add("open");
-        mobileBackdrop.style.display = "block";
-        setTimeout(() => (mobileBackdrop.style.opacity = "1"), 10);
-      }
-
-      function closeMobileMenu() {
-        mobileDrawer.classList.remove("open");
-        mobileBackdrop.style.opacity = "0";
-        setTimeout(() => (mobileBackdrop.style.display = "none"), 300);
-      }
-
-      mobileToggle.addEventListener("click", openMobileMenu);
-      mobileBackdrop.addEventListener("click", closeMobileMenu);
-      mobileClose.addEventListener("click", closeMobileMenu);
-    </script>
-
-    <!-- Firebase đếm lượt truy cập -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import {
-        getDatabase,
-        ref,
-        get,
-        set,
-        update,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-      const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_DOMAIN",
-        databaseURL: "YOUR_DATABASE_URL",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_STORAGE",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const db = getDatabase(app);
-
-      const today = new Date().toISOString().split("T")[0];
-      const totalRef = ref(db, "counter/total");
-      const todayRef = ref(db, `counter/daily/${today}`);
-
-      async function updateCounters() {
-        const totalSnap = await get(totalRef);
-        const todaySnap = await get(todayRef);
-        const total = (totalSnap.val() || 0) + 1;
-        const todayCount = (todaySnap.val() || 0) + 1;
-        await update(ref(db), {
-          "counter/total": total,
-          [`counter/daily/${today}`]: todayCount,
-        });
-        document.getElementById("totalCount").textContent = total;
-        document.getElementById("todayCount").textContent = todayCount;
-      }
-      updateCounters();
     </script>
   </body>
 </html>
