@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -42,18 +41,17 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/agiihnhchnh_1.js"></script>
-        <script src="data/Ranhgiibin_2.js"></script>
-        <script src="data/Ranhgiithnhph_3.js"></script>
-        <script src="data/ngsng_4.js"></script>
-        <script src="data/ngb_5.js"></script>
-        <script src="data/Snbay_6.js"></script>
-        <script src="data/LVngCungT923_7.js"></script>
-        <script src="data/imuimcui_8.js"></script>
-        <script src="data/Xploitheonhmtui_9.js"></script>
-        <script src="data/Xploiditch_10.js"></script>
-        <script src="data/imditchthamquan_11.js"></script>
+        <script src="data/Ranhgiibin_3.js"></script>
+        <script src="data/Ranhgiithnhph_4.js"></script>
+        <script src="data/ngsng_5.js"></script>
+        <script src="data/ngb_6.js"></script>
+        <script src="data/Snbay_7.js"></script>
+        <script src="data/LVngCungT923_8.js"></script>
+        <script src="data/imuimcui_9.js"></script>
+        <script src="data/Xploitheonhmtui_10.js"></script>
+        <script src="data/Xploiditch_11.js"></script>
+        <script src="data/imditchthamquan_12.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -203,7 +201,15 @@
         });
         bounds_group.addLayer(layer_agiihnhchnh_1);
         map.addLayer(layer_agiihnhchnh_1);
-        function pop_Ranhgiibin_2(feature, layer) {
+        map.createPane('pane_PhplncnProximity_2');
+        map.getPane('pane_PhplncnProximity_2').style.zIndex = 402;
+        var img_PhplncnProximity_2 = 'data/PhplncnProximity_2.png';
+        var img_bounds_PhplncnProximity_2 = [[9.87805,105.37603],[10.24955,106.00453]];
+        var layer_PhplncnProximity_2 = new L.imageOverlay(img_PhplncnProximity_2,
+                                              img_bounds_PhplncnProximity_2,
+                                              {pane: 'pane_PhplncnProximity_2'});
+        bounds_group.addLayer(layer_PhplncnProximity_2);
+        function pop_Ranhgiibin_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -245,9 +251,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Ranhgiibin_2_0() {
+        function style_Ranhgiibin_3_0() {
             return {
-                pane: 'pane_Ranhgiibin_2',
+                pane: 'pane_Ranhgiibin_3',
                 opacity: 1,
                 color: 'rgba(31,120,180,1.0)',
                 dashArray: '',
@@ -258,21 +264,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Ranhgiibin_2');
-        map.getPane('pane_Ranhgiibin_2').style.zIndex = 402;
-        map.getPane('pane_Ranhgiibin_2').style['mix-blend-mode'] = 'normal';
-        var layer_Ranhgiibin_2 = new L.geoJson(json_Ranhgiibin_2, {
+        map.createPane('pane_Ranhgiibin_3');
+        map.getPane('pane_Ranhgiibin_3').style.zIndex = 403;
+        map.getPane('pane_Ranhgiibin_3').style['mix-blend-mode'] = 'normal';
+        var layer_Ranhgiibin_3 = new L.geoJson(json_Ranhgiibin_3, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Ranhgiibin_2',
-            layerName: 'layer_Ranhgiibin_2',
-            pane: 'pane_Ranhgiibin_2',
-            onEachFeature: pop_Ranhgiibin_2,
-            style: style_Ranhgiibin_2_0,
+            dataVar: 'json_Ranhgiibin_3',
+            layerName: 'layer_Ranhgiibin_3',
+            pane: 'pane_Ranhgiibin_3',
+            onEachFeature: pop_Ranhgiibin_3,
+            style: style_Ranhgiibin_3_0,
         });
-        bounds_group.addLayer(layer_Ranhgiibin_2);
-        map.addLayer(layer_Ranhgiibin_2);
-        function pop_Ranhgiithnhph_3(feature, layer) {
+        bounds_group.addLayer(layer_Ranhgiibin_3);
+        map.addLayer(layer_Ranhgiibin_3);
+        function pop_Ranhgiithnhph_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -329,9 +335,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Ranhgiithnhph_3_0() {
+        function style_Ranhgiithnhph_4_0() {
             return {
-                pane: 'pane_Ranhgiithnhph_3',
+                pane: 'pane_Ranhgiithnhph_4',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '12.0,6.0',
@@ -342,21 +348,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Ranhgiithnhph_3');
-        map.getPane('pane_Ranhgiithnhph_3').style.zIndex = 403;
-        map.getPane('pane_Ranhgiithnhph_3').style['mix-blend-mode'] = 'normal';
-        var layer_Ranhgiithnhph_3 = new L.geoJson(json_Ranhgiithnhph_3, {
+        map.createPane('pane_Ranhgiithnhph_4');
+        map.getPane('pane_Ranhgiithnhph_4').style.zIndex = 404;
+        map.getPane('pane_Ranhgiithnhph_4').style['mix-blend-mode'] = 'normal';
+        var layer_Ranhgiithnhph_4 = new L.geoJson(json_Ranhgiithnhph_4, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Ranhgiithnhph_3',
-            layerName: 'layer_Ranhgiithnhph_3',
-            pane: 'pane_Ranhgiithnhph_3',
-            onEachFeature: pop_Ranhgiithnhph_3,
-            style: style_Ranhgiithnhph_3_0,
+            dataVar: 'json_Ranhgiithnhph_4',
+            layerName: 'layer_Ranhgiithnhph_4',
+            pane: 'pane_Ranhgiithnhph_4',
+            onEachFeature: pop_Ranhgiithnhph_4,
+            style: style_Ranhgiithnhph_4_0,
         });
-        bounds_group.addLayer(layer_Ranhgiithnhph_3);
-        map.addLayer(layer_Ranhgiithnhph_3);
-        function pop_ngsng_4(feature, layer) {
+        bounds_group.addLayer(layer_Ranhgiithnhph_4);
+        map.addLayer(layer_Ranhgiithnhph_4);
+        function pop_ngsng_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -392,9 +398,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ngsng_4_0() {
+        function style_ngsng_5_0() {
             return {
-                pane: 'pane_ngsng_4',
+                pane: 'pane_ngsng_5',
                 opacity: 1,
                 color: 'rgba(1,242,255,1.0)',
                 dashArray: '',
@@ -405,21 +411,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_ngsng_4');
-        map.getPane('pane_ngsng_4').style.zIndex = 404;
-        map.getPane('pane_ngsng_4').style['mix-blend-mode'] = 'normal';
-        var layer_ngsng_4 = new L.geoJson(json_ngsng_4, {
+        map.createPane('pane_ngsng_5');
+        map.getPane('pane_ngsng_5').style.zIndex = 405;
+        map.getPane('pane_ngsng_5').style['mix-blend-mode'] = 'normal';
+        var layer_ngsng_5 = new L.geoJson(json_ngsng_5, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_ngsng_4',
-            layerName: 'layer_ngsng_4',
-            pane: 'pane_ngsng_4',
-            onEachFeature: pop_ngsng_4,
-            style: style_ngsng_4_0,
+            dataVar: 'json_ngsng_5',
+            layerName: 'layer_ngsng_5',
+            pane: 'pane_ngsng_5',
+            onEachFeature: pop_ngsng_5,
+            style: style_ngsng_5_0,
         });
-        bounds_group.addLayer(layer_ngsng_4);
-        map.addLayer(layer_ngsng_4);
-        function pop_ngb_5(feature, layer) {
+        bounds_group.addLayer(layer_ngsng_5);
+        map.addLayer(layer_ngsng_5);
+        function pop_ngb_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -446,9 +452,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ngb_5_0() {
+        function style_ngb_6_0() {
             return {
-                pane: 'pane_ngb_5',
+                pane: 'pane_ngb_6',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -459,21 +465,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_ngb_5');
-        map.getPane('pane_ngb_5').style.zIndex = 405;
-        map.getPane('pane_ngb_5').style['mix-blend-mode'] = 'normal';
-        var layer_ngb_5 = new L.geoJson(json_ngb_5, {
+        map.createPane('pane_ngb_6');
+        map.getPane('pane_ngb_6').style.zIndex = 406;
+        map.getPane('pane_ngb_6').style['mix-blend-mode'] = 'normal';
+        var layer_ngb_6 = new L.geoJson(json_ngb_6, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_ngb_5',
-            layerName: 'layer_ngb_5',
-            pane: 'pane_ngb_5',
-            onEachFeature: pop_ngb_5,
-            style: style_ngb_5_0,
+            dataVar: 'json_ngb_6',
+            layerName: 'layer_ngb_6',
+            pane: 'pane_ngb_6',
+            onEachFeature: pop_ngb_6,
+            style: style_ngb_6_0,
         });
-        bounds_group.addLayer(layer_ngb_5);
-        map.addLayer(layer_ngb_5);
-        function pop_Snbay_6(feature, layer) {
+        bounds_group.addLayer(layer_ngb_6);
+        map.addLayer(layer_ngb_6);
+        function pop_Snbay_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -503,57 +509,57 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Snbay_6_0() {
+        function style_Snbay_7_0() {
             return {
-                pane: 'pane_Snbay_6',
+                pane: 'pane_Snbay_7',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Snbay_6.svg',
+            iconUrl: 'markers/Snbay_7.svg',
             iconSize: [30.4, 30.4]
         }),
                 interactive: false,
             }
         }
-        function style_Snbay_6_1() {
+        function style_Snbay_7_1() {
             return {
-                pane: 'pane_Snbay_6',
+                pane: 'pane_Snbay_7',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Snbay_6.svg',
+            iconUrl: 'markers/Snbay_7.svg',
             iconSize: [30.4, 30.4]
         }),
                 interactive: false,
             }
         }
-        map.createPane('pane_Snbay_6');
-        map.getPane('pane_Snbay_6').style.zIndex = 406;
-        map.getPane('pane_Snbay_6').style['mix-blend-mode'] = 'normal';
-        var layer_Snbay_6 = new L.geoJson.multiStyle(json_Snbay_6, {
+        map.createPane('pane_Snbay_7');
+        map.getPane('pane_Snbay_7').style.zIndex = 407;
+        map.getPane('pane_Snbay_7').style['mix-blend-mode'] = 'normal';
+        var layer_Snbay_7 = new L.geoJson.multiStyle(json_Snbay_7, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Snbay_6',
-            layerName: 'layer_Snbay_6',
-            pane: 'pane_Snbay_6',
-            onEachFeature: pop_Snbay_6,
+            dataVar: 'json_Snbay_7',
+            layerName: 'layer_Snbay_7',
+            pane: 'pane_Snbay_7',
+            onEachFeature: pop_Snbay_7,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Snbay_6_0(feature));
+                return L.marker(latlng, style_Snbay_7_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Snbay_6_1(feature));
+                return L.marker(latlng, style_Snbay_7_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_Snbay_6);
-        map.addLayer(layer_Snbay_6);
-        function pop_LVngCungT923_7(feature, layer) {
+        bounds_group.addLayer(layer_Snbay_7);
+        map.addLayer(layer_Snbay_7);
+        function pop_LVngCungT923_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -580,9 +586,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LVngCungT923_7_0() {
+        function style_LVngCungT923_8_0() {
             return {
-                pane: 'pane_LVngCungT923_7',
+                pane: 'pane_LVngCungT923_8',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -593,9 +599,9 @@
                 interactive: false,
             }
         }
-        function style_LVngCungT923_7_1() {
+        function style_LVngCungT923_8_1() {
             return {
-                pane: 'pane_LVngCungT923_7',
+                pane: 'pane_LVngCungT923_8',
                 opacity: 1,
                 color: 'rgba(255,96,17,1.0)',
                 dashArray: '',
@@ -606,21 +612,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_LVngCungT923_7');
-        map.getPane('pane_LVngCungT923_7').style.zIndex = 407;
-        map.getPane('pane_LVngCungT923_7').style['mix-blend-mode'] = 'normal';
-        var layer_LVngCungT923_7 = new L.geoJson.multiStyle(json_LVngCungT923_7, {
+        map.createPane('pane_LVngCungT923_8');
+        map.getPane('pane_LVngCungT923_8').style.zIndex = 408;
+        map.getPane('pane_LVngCungT923_8').style['mix-blend-mode'] = 'normal';
+        var layer_LVngCungT923_8 = new L.geoJson.multiStyle(json_LVngCungT923_8, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_LVngCungT923_7',
-            layerName: 'layer_LVngCungT923_7',
-            pane: 'pane_LVngCungT923_7',
-            onEachFeature: pop_LVngCungT923_7,
-            styles: [style_LVngCungT923_7_0,style_LVngCungT923_7_1,]
+            dataVar: 'json_LVngCungT923_8',
+            layerName: 'layer_LVngCungT923_8',
+            pane: 'pane_LVngCungT923_8',
+            onEachFeature: pop_LVngCungT923_8,
+            styles: [style_LVngCungT923_8_0,style_LVngCungT923_8_1,]
         });
-        bounds_group.addLayer(layer_LVngCungT923_7);
-        map.addLayer(layer_LVngCungT923_7);
-        function pop_imuimcui_8(feature, layer) {
+        bounds_group.addLayer(layer_LVngCungT923_8);
+        map.addLayer(layer_LVngCungT923_8);
+        function pop_imuimcui_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -647,9 +653,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_imuimcui_8_0() {
+        function style_imuimcui_9_0() {
             return {
-                pane: 'pane_imuimcui_8',
+                pane: 'pane_imuimcui_9',
                 shape: 'triangle',
                 radius: 12.0,
                 opacity: 1,
@@ -664,27 +670,27 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_imuimcui_8');
-        map.getPane('pane_imuimcui_8').style.zIndex = 408;
-        map.getPane('pane_imuimcui_8').style['mix-blend-mode'] = 'normal';
-        var layer_imuimcui_8 = new L.geoJson(json_imuimcui_8, {
+        map.createPane('pane_imuimcui_9');
+        map.getPane('pane_imuimcui_9').style.zIndex = 409;
+        map.getPane('pane_imuimcui_9').style['mix-blend-mode'] = 'normal';
+        var layer_imuimcui_9 = new L.geoJson(json_imuimcui_9, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_imuimcui_8',
-            layerName: 'layer_imuimcui_8',
-            pane: 'pane_imuimcui_8',
-            onEachFeature: pop_imuimcui_8,
+            dataVar: 'json_imuimcui_9',
+            layerName: 'layer_imuimcui_9',
+            pane: 'pane_imuimcui_9',
+            onEachFeature: pop_imuimcui_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_imuimcui_8_0(feature));
+                return L.shapeMarker(latlng, style_imuimcui_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_imuimcui_8);
-        map.addLayer(layer_imuimcui_8);
-        function pop_Xploitheonhmtui_9(feature, layer) {
+        bounds_group.addLayer(layer_imuimcui_9);
+        map.addLayer(layer_imuimcui_9);
+        function pop_Xploitheonhmtui_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -739,11 +745,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Xploitheonhmtui_9_0(feature) {
+        function style_Xploitheonhmtui_10_0(feature) {
             switch(String(feature.properties['Tuoi'])) {
                 case '>200':
                     return {
-                pane: 'pane_Xploitheonhmtui_9',
+                pane: 'pane_Xploitheonhmtui_10',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -759,7 +765,7 @@
                     break;
                 case '100 - 200':
                     return {
-                pane: 'pane_Xploitheonhmtui_9',
+                pane: 'pane_Xploitheonhmtui_10',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -775,7 +781,7 @@
                     break;
                 case '50 - 100':
                     return {
-                pane: 'pane_Xploitheonhmtui_9',
+                pane: 'pane_Xploitheonhmtui_10',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -791,7 +797,7 @@
                     break;
                 case '<50':
                     return {
-                pane: 'pane_Xploitheonhmtui_9',
+                pane: 'pane_Xploitheonhmtui_10',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -807,27 +813,26 @@
                     break;
             }
         }
-        map.createPane('pane_Xploitheonhmtui_9');
-        map.getPane('pane_Xploitheonhmtui_9').style.zIndex = 409;
-        map.getPane('pane_Xploitheonhmtui_9').style['mix-blend-mode'] = 'normal';
-        var layer_Xploitheonhmtui_9 = new L.geoJson(json_Xploitheonhmtui_9, {
+        map.createPane('pane_Xploitheonhmtui_10');
+        map.getPane('pane_Xploitheonhmtui_10').style.zIndex = 410;
+        map.getPane('pane_Xploitheonhmtui_10').style['mix-blend-mode'] = 'normal';
+        var layer_Xploitheonhmtui_10 = new L.geoJson(json_Xploitheonhmtui_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Xploitheonhmtui_9',
-            layerName: 'layer_Xploitheonhmtui_9',
-            pane: 'pane_Xploitheonhmtui_9',
-            onEachFeature: pop_Xploitheonhmtui_9,
+            dataVar: 'json_Xploitheonhmtui_10',
+            layerName: 'layer_Xploitheonhmtui_10',
+            pane: 'pane_Xploitheonhmtui_10',
+            onEachFeature: pop_Xploitheonhmtui_10,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Xploitheonhmtui_9_0(feature));
+                return L.circleMarker(latlng, style_Xploitheonhmtui_10_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Xploitheonhmtui_9);
-        map.addLayer(layer_Xploitheonhmtui_9);
-        function pop_Xploiditch_10(feature, layer) {
+        bounds_group.addLayer(layer_Xploitheonhmtui_10);
+        function pop_Xploiditch_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -874,11 +879,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Xploiditch_10_0(feature) {
+        function style_Xploiditch_11_0(feature) {
             switch(String(feature.properties['Xep loai'])) {
                 case 'Cap quoc gia':
                     return {
-                pane: 'pane_Xploiditch_10',
+                pane: 'pane_Xploiditch_11',
                 radius: 7.2,
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
@@ -894,7 +899,7 @@
                     break;
                 case 'Cap thanh pho':
                     return {
-                pane: 'pane_Xploiditch_10',
+                pane: 'pane_Xploiditch_11',
                 radius: 7.2,
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
@@ -910,7 +915,7 @@
                     break;
                 case 'Chua xep hang':
                     return {
-                pane: 'pane_Xploiditch_10',
+                pane: 'pane_Xploiditch_11',
                 radius: 7.2,
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
@@ -926,27 +931,26 @@
                     break;
             }
         }
-        map.createPane('pane_Xploiditch_10');
-        map.getPane('pane_Xploiditch_10').style.zIndex = 410;
-        map.getPane('pane_Xploiditch_10').style['mix-blend-mode'] = 'normal';
-        var layer_Xploiditch_10 = new L.geoJson(json_Xploiditch_10, {
+        map.createPane('pane_Xploiditch_11');
+        map.getPane('pane_Xploiditch_11').style.zIndex = 411;
+        map.getPane('pane_Xploiditch_11').style['mix-blend-mode'] = 'normal';
+        var layer_Xploiditch_11 = new L.geoJson(json_Xploiditch_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Xploiditch_10',
-            layerName: 'layer_Xploiditch_10',
-            pane: 'pane_Xploiditch_10',
-            onEachFeature: pop_Xploiditch_10,
+            dataVar: 'json_Xploiditch_11',
+            layerName: 'layer_Xploiditch_11',
+            pane: 'pane_Xploiditch_11',
+            onEachFeature: pop_Xploiditch_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Xploiditch_10_0(feature));
+                return L.circleMarker(latlng, style_Xploiditch_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Xploiditch_10);
-        map.addLayer(layer_Xploiditch_10);
-        function pop_imditchthamquan_11(feature, layer) {
+        bounds_group.addLayer(layer_Xploiditch_11);
+        function pop_imditchthamquan_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -993,9 +997,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_imditchthamquan_11_0() {
+        function style_imditchthamquan_12_0() {
             return {
-                pane: 'pane_imditchthamquan_11',
+                pane: 'pane_imditchthamquan_12',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(238,238,238,1.0)',
@@ -1009,26 +1013,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_imditchthamquan_11');
-        map.getPane('pane_imditchthamquan_11').style.zIndex = 411;
-        map.getPane('pane_imditchthamquan_11').style['mix-blend-mode'] = 'normal';
-        var layer_imditchthamquan_11 = new L.geoJson(json_imditchthamquan_11, {
+        map.createPane('pane_imditchthamquan_12');
+        map.getPane('pane_imditchthamquan_12').style.zIndex = 412;
+        map.getPane('pane_imditchthamquan_12').style['mix-blend-mode'] = 'normal';
+        var layer_imditchthamquan_12 = new L.geoJson(json_imditchthamquan_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_imditchthamquan_11',
-            layerName: 'layer_imditchthamquan_11',
-            pane: 'pane_imditchthamquan_11',
-            onEachFeature: pop_imditchthamquan_11,
+            dataVar: 'json_imditchthamquan_12',
+            layerName: 'layer_imditchthamquan_12',
+            pane: 'pane_imditchthamquan_12',
+            onEachFeature: pop_imditchthamquan_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_imditchthamquan_11_0(feature));
+                return L.circleMarker(latlng, style_imditchthamquan_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_imditchthamquan_11);
-        map.addLayer(layer_imditchthamquan_11);
+        bounds_group.addLayer(layer_imditchthamquan_12);
+        map.addLayer(layer_imditchthamquan_12);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -1040,16 +1044,17 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var overlaysTree = [
-            {label: '<img src="legend/imditchthamquan_11.png" /> Điểm di tích - tham quan', layer: layer_imditchthamquan_11},
-            {label: 'Xếp loại di tích <br /><table><tr><td style="text-align: center;"><img src="legend/Xploiditch_10_Cấpquốcgia0.png" /></td><td>Cấp quốc gia</td></tr><tr><td style="text-align: center;"><img src="legend/Xploiditch_10_Cấpthànhphố1.png" /></td><td>Cấp thành phố</td></tr><tr><td style="text-align: center;"><img src="legend/Xploiditch_10_Chưaxếphạng2.png" /></td><td>Chưa xếp hạng</td></tr></table>', layer: layer_Xploiditch_10},
-            {label: 'Xếp loại theo nhóm tuổi<br /><table><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_9_200năm0.png" /></td><td>> 200 năm</td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_9_100200năm1.png" /></td><td>100 - 200 năm </td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_9_50100năm2.png" /></td><td>50 - 100 năm</td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_9_50năm3.png" /></td><td>< 50 năm</td></tr></table>', layer: layer_Xploitheonhmtui_9},
-            {label: '<img src="legend/imuimcui_8.png" /> Điểm đầu - Điểm cuối', layer: layer_imuimcui_8},
-            {label: '<img src="legend/LVngCungT923_7.png" /> Lộ Vòng Cung - ĐT 923', layer: layer_LVngCungT923_7},
-            {label: '<img src="legend/Snbay_6.png" /> Sân bay', layer: layer_Snbay_6},
-            {label: '<img src="legend/ngb_5.png" /> Đường bộ', layer: layer_ngb_5},
-            {label: '<img src="legend/ngsng_4.png" /> Đường sông', layer: layer_ngsng_4},
-            {label: '<img src="legend/Ranhgiithnhph_3.png" /> Ranh giới thành phố', layer: layer_Ranhgiithnhph_3},
-            {label: '<img src="legend/Ranhgiibin_2.png" /> Ranh giới biển', layer: layer_Ranhgiibin_2},
+            {label: '<img src="legend/imditchthamquan_12.png" /> Điểm di tích - tham quan', layer: layer_imditchthamquan_12},
+            {label: 'Xếp loại di tích <br /><table><tr><td style="text-align: center;"><img src="legend/Xploiditch_11_Cấpquốcgia0.png" /></td><td>Cấp quốc gia</td></tr><tr><td style="text-align: center;"><img src="legend/Xploiditch_11_Cấpthànhphố1.png" /></td><td>Cấp thành phố</td></tr><tr><td style="text-align: center;"><img src="legend/Xploiditch_11_Chưaxếphạng2.png" /></td><td>Chưa xếp hạng</td></tr></table>', layer: layer_Xploiditch_11},
+            {label: 'Xếp loại theo nhóm tuổi<br /><table><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_10_200năm0.png" /></td><td>> 200 năm</td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_10_100200năm1.png" /></td><td>100 - 200 năm </td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_10_50100năm2.png" /></td><td>50 - 100 năm</td></tr><tr><td style="text-align: center;"><img src="legend/Xploitheonhmtui_10_50năm3.png" /></td><td>< 50 năm</td></tr></table>', layer: layer_Xploitheonhmtui_10},
+            {label: '<img src="legend/imuimcui_9.png" /> Điểm đầu - Điểm cuối', layer: layer_imuimcui_9},
+            {label: '<img src="legend/LVngCungT923_8.png" /> Lộ Vòng Cung - ĐT 923', layer: layer_LVngCungT923_8},
+            {label: '<img src="legend/Snbay_7.png" /> Sân bay', layer: layer_Snbay_7},
+            {label: '<img src="legend/ngb_6.png" /> Đường bộ', layer: layer_ngb_6},
+            {label: '<img src="legend/ngsng_5.png" /> Đường sông', layer: layer_ngsng_5},
+            {label: '<img src="legend/Ranhgiithnhph_4.png" /> Ranh giới thành phố', layer: layer_Ranhgiithnhph_4},
+            {label: '<img src="legend/Ranhgiibin_3.png" /> Ranh giới biển', layer: layer_Ranhgiibin_3},
+            {label: "Phép lân cận (Proximity)", layer: layer_PhplncnProximity_2},
             {label: '<img src="legend/agiihnhchnh_1.png" /> Địa giới hành chính', layer: layer_agiihnhchnh_1},
             {label: "Google Map", layer: layer_GoogleMap_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
@@ -1063,22 +1068,20 @@
         });
         lay.addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_Xploitheonhmtui_9,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'Tuoi'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
-        resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_9,layer_Xploiditch_10,layer_imditchthamquan_11]);
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_10,layer_Xploiditch_11,layer_imditchthamquan_12]);
         map.on("zoomend", function(){
-            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_9,layer_Xploiditch_10,layer_imditchthamquan_11]);
+            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_10,layer_Xploiditch_11,layer_imditchthamquan_12]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_9,layer_Xploiditch_10,layer_imditchthamquan_11]);
+            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_10,layer_Xploiditch_11,layer_imditchthamquan_12]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_9,layer_Xploiditch_10,layer_imditchthamquan_11]);
+            resetLabels([layer_agiihnhchnh_1,layer_Xploitheonhmtui_10,layer_Xploiditch_11,layer_imditchthamquan_12]);
         });
         </script>
     </body>
